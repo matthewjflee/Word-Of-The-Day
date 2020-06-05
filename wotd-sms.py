@@ -1,6 +1,6 @@
 import requests
+import sms
 from bs4 import BeautifulSoup
-from os import path
 
 """
 This script will go to dictionary.com's word of the day and display the word on the console
@@ -32,8 +32,7 @@ def word_of_the_day():
 	line1 = f"{colors.CYAN}{colors.BOLD}{word}{colors.ENDC} {pronounce}: {colors.ITALIC}{word_type}"
 	line2 = f"{definition}"
 
-	print(line1)
-	print(line2)
-	
+	sms.send(line1 + '\n' + line2)
+
 if __name__ == "__main__":
 	word_of_the_day() 
